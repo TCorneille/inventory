@@ -1,8 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { useTheme } from '../hooks/useThemes';
 
 export default function Products() {
+    const { theme, toggleTheme } = useTheme();
     return (
-        <div>
+        <div className={`${theme ==="light" ?"bg-white":"bg-gray-600 text-white"}`}>
             <div className='border rounded-lg border-gray-100'>
                 <h1 className='text-4xl border-b-1 border-gray-100 text-gray-800 font-Bold px-10 py-2'>Recent Added Products</h1>
 

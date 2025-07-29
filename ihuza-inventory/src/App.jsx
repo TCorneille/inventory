@@ -7,10 +7,10 @@ import Products from './Components/Products';
 import Users from './Components/Users';
 
 function App() {
-  const { theme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   return (
-    <div className={`${theme} min-h-screen `}>
+    <div className={` min-h-screen `}>
       <div className="flex">
         {/* Sidebar */}
         <aside className="w-1/5 min-h-screen ">
