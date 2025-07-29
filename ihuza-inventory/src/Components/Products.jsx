@@ -5,12 +5,12 @@ export default function Products() {
     const { theme, toggleTheme } = useTheme();
     return (
         <div className={`${theme ==="light" ?"bg-white":"bg-gray-600 text-white"}`}>
-            <div className='border rounded-lg border-gray-100'>
-                <h1 className='text-4xl border-b-1 border-gray-100 text-gray-800 font-Bold px-10 py-2'>Recent Added Products</h1>
+            <div className={`border rounded-lg border-gray-100 ${theme ==="light" ?"bg-white":"bg-gray-600 text-white" } `}>
+                <h1 className={`text-4xl border-b-1 border-gray-100 text-gray-800 font-Bold px-10 py-2 ${theme ==="light" ?"bg-white":"bg-gray-600 text-white" } `}>Recent Added Products</h1>
 
-                <div className='flex flex-wrap justify-start gap-4 p-6 w-full'>
+                <div className={`flex flex-wrap justify-start gap-4 p-6 w-full ${theme ==="light" ?"bg-white":"bg-gray-600 text-white" } `}>
 
-                    <div className=' min-w-[350px] bg-white p-6 rounded-lg shadow-sm flex justify-between items-center gap-4'>
+                    <div className={`min-w-[350px] bg-white p-6 rounded-lg shadow-sm flex justify-between items-center gap-4${theme ==="light" ?"bg-white":"bg-gray-600 text-white" } `}>
                         <div>
                             <h2 className='text-gray-600 font-bold'> MacBook Pro 16"</h2>
                             <p className='text-gray-600'>Laptops</p>
