@@ -7,6 +7,7 @@ import { IoReorderThreeOutline } from "react-icons/io5";
 import { SiBookstack } from "react-icons/si";
 import { CiLogin } from "react-icons/ci";
 import { useTheme } from '../hooks/useThemes';
+import { Link } from "react-router-dom";
 
 
 export default function Navigation() {
@@ -20,46 +21,38 @@ export default function Navigation() {
         </div>
         <h1 className=''><span className=' font-bold'>iHUZA</span> <br /> <span className='text-sm'>INVENTORY</span></h1>
       </div>
-      <a
-        href="#dashboard"
-        className='px-3 py-2 rounded hover:bg-primaryColor-50 transition-colors flex hover:text-primaryColor-600 duration-200'
+      <Link to={`/Dashboard`} className='px-3 py-2 rounded hover:bg-primaryColor-50 transition-colors flex hover:text-primaryColor-600 duration-200'
       >
-        <MdComputer size={25} />
-        Dashboard
-      </a>
-      <a
-        href="#users"
-        className='px-3 py-2 rounded hover:bg-primaryColor-50 flex   hover:text-primaryColor-600 transition-colors duration-200'
+        <MdComputer size={25} className='px-1' />Dashboard</Link>
+
+      <Link to={`/Users`} className='px-3 py-2 rounded hover:bg-primaryColor-50 flex   hover:text-primaryColor-600 transition-colors duration-200'
       >
-        <FaUserFriends size={25} />
-        Users
-      </a>
-      <a
-        href="#products"
-        className='px-3 py-2 rounded hover:bg-primaryColor-50 flex hover:text-primaryColor-600  transition-colors duration-200'
-      >
-        <AiFillProduct size={25} />
+        <FaUserFriends size={25} />Users</Link>
+
+      <Link to={`/Products`} className='px-3 py-2 rounded hover:bg-primaryColor-50 flex hover:text-primaryColor-600  transition-colors duration-200'>
+        <AiFillProduct size={25} className='px-1' />
         Products
-      </a>
+      </Link>
+
+
       <a
         href="#assignments"
         className='px-3 py-2 rounded  flex hover:bg-primaryColor-50 hover:text-primaryColor-600 transition-colors duration-200'
       >
-        <IoReorderThreeOutline size={25} />
+        <IoReorderThreeOutline size={25} className='px-1'/>
         Assignments
       </a>
       <a
         href="#categories"
         className='px-3 py-2 h rounded flex hover:bg-primaryColor-50 hover:text-primaryColor-600 transition-colors duration-200'
       >
-        <SiBookstack size={25} />
+        <SiBookstack size={25} className='px-1'/>
 
         Categories
       </a>
-      <button className=' px-3 mt-auto  text-start hover:bg-primaryColor-50  flex '>
-        <CiLogin size={25} />
-        Log out
-      </button>
+
+      <Link to={`/`} className=' px-3 mt-auto  text-start hover:bg-primaryColor-50  flex '> Log out</Link>
+      
     </nav>
   )
 }

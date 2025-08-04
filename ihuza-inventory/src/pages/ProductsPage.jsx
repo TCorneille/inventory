@@ -9,7 +9,7 @@ import { FaBars } from 'react-icons/fa';
 import { useState } from 'react';
 
 
-function Dashboard() {
+function ProductsPage() {
   const { theme, toggleTheme } = useTheme();
   const [menu, setMenu] = useState(false)
 
@@ -27,7 +27,7 @@ function Dashboard() {
         </aside>
 
         {/* Main Content */}
-        <main className={`w-10/12  max-sm:w-full  text-black  dark:text-white `}>
+        <main className={`w-10/12  max-sm:w-full  text-black  dark:text-white ${theme ==="light" ?"bg-white":"bg-gray-800 text-white " }`}>
           <div className=''>
             <Head
               menu={toggleMenu}
@@ -38,15 +38,15 @@ function Dashboard() {
             <div className={`flex border rounded-lg ${theme ==="light" ?"border-gray-100":"border-gray-600 " } justify-center bg-primaryColor-600`}>
               <System />
             </div>
-            <div className=''>
+            {/* <div className=''>
               <Stats />
-            </div>
+            </div> */}
             <div className=''>
               <Products />
             </div>
-            <div className=''>
+            {/* <div className=''>
               <Users />
-            </div>
+            </div> */}
           </div>
 
 
@@ -57,4 +57,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default ProductsPage;

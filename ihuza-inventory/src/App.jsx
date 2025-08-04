@@ -1,17 +1,12 @@
-
-
-
-import LoginForm from "./pages/Login";
-
-// import RegistrationFormSimple from "./pages/auth/registrationFormSimple";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./Routes/AppRoutes";
 
 function App() {
   return (
-    <>
-      <div>
-        <LoginFor />
-      </div>
-    </>
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+
   );
 }
 
