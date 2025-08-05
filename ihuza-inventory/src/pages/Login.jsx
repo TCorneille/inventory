@@ -1,7 +1,8 @@
 import Input from "@components/Input" ;
 import Button from "@components/Button";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+import { Users } from '../context/UsersList';
 
 const LoginForm = () => {
   const [formData, setFormata] = useState({
@@ -42,7 +43,22 @@ const LoginForm = () => {
     console.log("Errors that is being returned", formErrors);
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
-    } else {
+    } 
+
+    const validUser = userList.find(
+    (user) =>
+      user.email === formData.email && user.password === "password"
+  );
+
+  if (!validUser) {
+    setErrors({
+      email: "Invalid credentials",
+      password: "Invalid credentials",
+    });
+    return;
+  }
+    
+    else {
       alert("Login Successful!");
       setFormata({
        
