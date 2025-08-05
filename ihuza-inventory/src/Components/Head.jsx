@@ -5,7 +5,7 @@ import { useTheme } from '../hooks/useThemes';
 export default function Head(props) {
   const { theme, toggleTheme } = useTheme();
 
-
+const user = JSON.parse(localStorage.getItem("loggedInUser"));
   return (
     <header className={`flex justify-between max-sm:h-[70px] items-center gap-2`}>
       <div className='h-full sm:hidden py-2 flex items-start text-primaryColor-600'><FaBars onClick={props.menu} /></div>
@@ -40,7 +40,7 @@ export default function Head(props) {
 
           {/* Profile */}
           <div className="flex items-center space-x-3 border-l border-gray-200 dark:border-gray-600 pl-4">
-            <p className="text-sm max-sm:hidden font-medium">Admin@ihuza</p>
+            <p className="text-sm max-sm:hidden font-medium">{user.name}</p>
             <button className="p-2 rounded-full bg-primaryColor-500 border border-gray-300 text-white hover:bg-primaryColor-600 transition-colors">
               <FaUser size={18} className='max-sm:size-2' />
             </button>

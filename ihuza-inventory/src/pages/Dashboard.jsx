@@ -27,7 +27,7 @@ function Dashboard() {
         </aside>
 
         {/* Main Content */}
-        <main className={`w-10/12  max-sm:w-full  text-black  dark:text-white `}>
+        <main className={`w-10/12  max-sm:w-full  text-black  dark:text-white  ${theme ==="light" ?"bg-white":"bg-gray-800 text-white " }`}>
           <div className=''>
             <Head
               menu={toggleMenu}

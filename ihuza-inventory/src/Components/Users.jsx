@@ -231,78 +231,87 @@ import { Users } from '../context/UsersList';
 import { useTheme } from '../hooks/useThemes'
 
 export default function Table() {
-    const { user } = useUser;
-    const { theme, toggleTheme } = useTheme();
+  const { user } = useUser;
+  const { theme, toggleTheme } = useTheme();
 
-    return (
-        <table className="min-w-full table-auto border rounded-lg ">
-            <thead class={``}>
-                <tr>
-                    <th class="px-4 py-2 text-left">User</th>
-                    <th class="px-4 py-2 text-left">Role</th>
-                    <th class="px-4 py-2 text-left">Status</th>
-
-                    <th class="px-4 py-2 text-left">Last Login</th>
-                    <th class="px-4 py-2 text-left">Actions</th>
-                </tr>
-            </thead>
+  return (
+    <div className={`${theme === "light" ? "bg-white text-gray-600" : "bg-gray-800  text-white "}`}>            <div className={`p-10 flex justify-between border ${theme === "light" ? "border-gray-100" : "border-gray-600 "} rounded-lg`}>
+      <h1 className='text-3xl font-bold '>Users</h1>
 
 
+      <button className={`px-5 py-3 bg-primaryColor-600  text-white border  font-bold ${theme === "light" ? "border-gray-100" : "border-gray-600 "}  rounded-lg`}> Add User</button>
+    </div>
+      <div className='max-sm:overflow-auto'>
+        <table className={`min-w-full table-auto border rounded-lg ${theme ==="light" ?"border-gray-100 text-gray-600":"border-gray-600 text-white" } `}>
+          <thead class={``}>
+            <tr>
+              <th class="px-4 py-2 text-left">User</th>
+              <th class="px-4 py-2 text-left">Role</th>
+              <th class="px-4 py-2 text-left">Status</th>
 
-            <tbody class="text-gray-700">
-
-                
-
-                
-                {Users.map((user, index) => (
-            <tr
-              key={index}
-              className={`border-t ${
-                theme === "light"
-                  ? "border-gray-100 text-gray-600"
-                  : "border-gray-600 text-white"
-              }`}
-            >
-              <td className="px-4 flex items-center gap-3 font-bold py-2">
-                <LuUser
-                  size={40}
-                  className={`border text-sm rounded-full ${
-                    theme === "light"
-                      ? "border-gray-100 bg-gray-200 text-gray-600"
-                      : "border-gray-600 bg-gray-700 text-white"
-                  }`}
-                />
-                <div>
-                  {user.name}
-                  <br />
-                  <span className="font-normal">{user.email}</span>
-                </div>
-              </td>
-              <td className="px-4 py-2">
-                <span className="text-purple-700 border rounded-lg bg-purple-700/20 border-purple-100/20 p-0.5">
-                  {user.role}
-                </span>
-              </td>
-              <td className="px-4 py-2">
-                <span
-                  className={`border rounded-lg p-0.5 ${
-                    user.isActive
-                      ? "text-green-600 border-green-50 bg-green-100"
-                      : "text-red-600 border-red-50 bg-red-100"
-                  }`}
-                >
-                  {user.isActive ? "Active" : "Inactive"}
-                </span>
-              </td>
-              <td className="px-4 py-2">{user.lastLogin}</td>
-              <td className="px-4 py-2">
-                <button className="text-blue-500 pr-3 hover:underline">Edit</button>
-                <button className="text-red-500 hover:underline">Delete</button>
-              </td>
+              <th class="px-4 py-2 text-left">Last Login</th>
+              <th class="px-4 py-2 text-left">Actions</th>
             </tr>
-          ))}
-            </tbody>
+          </thead>
+
+
+
+          <tbody class="text-gray-700">
+
+
+
+
+            {Users.map((user, index) => (
+              <tr
+                key={index}
+                className={`border-t ${theme === "light"
+                    ? "border-gray-100 text-gray-600"
+                    : "border-gray-600 text-white"
+                  }`}
+              >
+                <td className="px-4 flex items-center gap-3 font-bold py-2">
+                  <LuUser
+                    size={40}
+                    className={`border text-sm rounded-full ${theme === "light"
+                        ? "border-gray-100 bg-gray-200 text-gray-600"
+                        : "border-gray-600 bg-gray-700 text-white"
+                      }`}
+                  />
+                  <div>
+                    {user.name}
+                    <br />
+                    <span className="font-normal">{user.email}</span>
+                  </div>
+                </td>
+                <td className="px-4 py-2">
+                  <span className={`${user.role==='Admin'
+                  ?"text-purple-700 border rounded-md bg-purple-700/20 border-purple-100/20 p-0.5"
+                :user.role==="Manager"?"text-blue-700 border rounded-md bg-blue-700/20 border-blue-100/20 p-0.5"
+              :"text-gray-700 border rounded-md bg-gray-700/20 border-gray-100/20 p-0.5"}`}>
+                    {user.role}
+                  </span>
+                </td>
+                <td className="px-4 py-2">
+                  <span
+                    className={`border rounded-md p-0.5 ${user.isActive
+                        ? "text-green-600 border-green-50 bg-green-100"
+                        : "text-red-600 border-red-50 bg-red-100"
+                      }`}
+                  >
+                    {user.isActive ? "Active" : "Inactive"}
+                  </span>
+                </td>
+                <td className="px-4 py-2">{user.lastlogin}</td>
+                <td className="px-4 py-2">
+                  <button className="text-blue-500 pr-3 hover:underline">Edit</button>
+                  <button className="text-red-500 hover:underline">Delete</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
-    )
+      </div>
+    </div>
+  )
 }
 
